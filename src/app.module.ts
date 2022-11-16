@@ -14,11 +14,11 @@ import { AuthModule } from "./auth/auth.module";
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      ...(process.env.NODE_ENV === "prod" ? {
+      ...(process.env.NODE_ENV === "production" ? {
         type: "postgres",
         url: process.env.DATABSE_URL
       } : {
-        type: process.env.NODE_ENV === "prod" ? "postgres" : "sqlite",
+        type: "sqlite",
         database: "db.sqlite3",
         logging: process.env.NODE_ENV !== "test"
       }), synchronize: true, entities: [Podcast, Episode, User, Review]
