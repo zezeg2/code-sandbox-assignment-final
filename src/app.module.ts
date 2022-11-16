@@ -30,7 +30,7 @@ import { AuthModule } from "./auth/auth.module";
       }
     }),
     JwtModule.forRoot({
-      privateKey: "8mMJe5dMGORyoRPLvngA8U4aLTF3WasX"
+      privateKey: process.env.NODE_ENV === "production" ? process.env.PRIVATE_KEY : "8mMJe5dMGORyoRPLvngA8U4aLTF3WasX",
     }),
     PodcastsModule,
     UsersModule,
