@@ -28,9 +28,10 @@ import { AuthModule } from "./auth/auth.module";
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
+      playground: true,
       context: ({ req }) => {
         return { user: req["user"] };
-      }
+      },
     }),
     JwtModule.forRoot({
       privateKey: process.env.NODE_ENV === "production" ? process.env.PRIVATE_KEY : "8mMJe5dMGORyoRPLvngA8U4aLTF3WasX",
