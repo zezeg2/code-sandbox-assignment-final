@@ -16,7 +16,7 @@ import { AuthModule } from "./auth/auth.module";
     TypeOrmModule.forRoot({
       ...(process.env.NODE_ENV === "production" ? {
         type: "postgres",
-        url: process.env.DATABSE_URL
+        url: process.env.DATABASE_URL
       } : {
         type: "sqlite",
         database: "db.sqlite3",
